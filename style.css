@@ -1,0 +1,211 @@
+:root {
+    --background-gradient: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    --glass-surface: rgba(255, 255, 255, 0.08);
+    --card-surface: rgba(255, 255, 255, 0.1);
+    --accent-color: #00cec9;
+    --accent-gradient: linear-gradient(45deg, #00cec9, #6c5ce7);
+    --bot-message: #636e72;
+    --text-color: white;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Segoe UI";
+    background: var(--background-gradient);
+    color: var(--text-color);
+}
+
+.glass {
+    backdrop-filter: blur(12px);
+    background: var(--glass-surface);
+    border-radius: 15px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+}
+
+.navbar ul {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar li {
+    cursor: pointer;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: 0.3s;
+}
+
+.navbar li:hover {
+    background: var(--accent-gradient);
+}
+
+.active {
+    background: var(--accent-color);
+}
+
+.page {
+    display: none;
+    padding: 20px;
+}
+
+.page.active {
+    display: block;
+}
+
+.fade {
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.top-bar,
+.ai-box {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.top-bar input,
+.top-bar select,
+.ai-box input,
+.ai-box select {
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font: inherit;
+    min-width: 160px;
+}
+
+.top-bar input {
+    flex: 1 1 260px;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    padding: 15px;
+    border-radius: 15px;
+    background: var(--card-surface);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px) scale(1.03);
+    box-shadow: 0 10px 30px var(--shadow-color);
+}
+
+.card h3 {
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.card p {
+    margin: 6px 0;
+}
+
+button {
+    background: var(--accent-gradient);
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.load-more {
+    display: none;
+    margin-top: 20px;
+}
+
+.section-note {
+    margin: 16px 0 0;
+    color: rgba(255, 255, 255, 0.85);
+}
+
+.metrics {
+    margin-top: 12px;
+    display: grid;
+    gap: 6px;
+    font-size: 14px;
+}
+
+.metrics strong {
+    color: #a5f3fc;
+}
+
+.chat {
+    max-width: 500px;
+    margin: auto;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.chat-box {
+    flex: 1;
+    overflow: auto;
+}
+
+.msg {
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    animation: fadeIn 0.3s;
+}
+
+.user {
+    background: var(--accent-color);
+    align-self: flex-end;
+}
+
+.bot {
+    background: var(--bot-message);
+}
+
+.chat-input {
+    display: flex;
+}
+
+canvas {
+    margin-top: 20px;
+    background: white;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+@media (max-width: 768px) {
+    .navbar ul {
+        flex-wrap: wrap;
+    }
+
+    .top-bar input,
+    .top-bar select,
+    .ai-box input,
+    .ai-box select,
+    .ai-box button {
+        width: 100%;
+    }
+}

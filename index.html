@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TercihAI</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <nav class="navbar glass">
+        <h2><i class="fa-solid fa-graduation-cap icon"></i> TercihAI</h2>
+
+        <ul class="nav-list">
+            <li class="nav-item active" data-page="universiteler">
+                <i class="fa-solid fa-school"></i> Üniversiteler
+            </li>
+            <li class="nav-item" data-page="favoriler">
+                <i class="fa-solid fa-heart"></i> Favoriler
+            </li>
+            <li class="nav-item" data-page="ai">
+                <i class="fa-solid fa-robot"></i> AI
+            </li>
+            <li class="nav-item" data-page="sohbet">
+                <i class="fa-solid fa-comments"></i> Sohbet
+            </li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="universiteler" class="page active fade">
+            <div class="top-bar">
+                <input id="searchInput" type="text" placeholder="Ara...">
+                <select id="cityFilter">
+                    <option value="">Şehir</option>
+                </select>
+                <select id="scoreTypeFilter">
+                    <option value="say">Puan Türü</option>
+                </select>
+            </div>
+
+            <p id="searchSummary" class="section-note"></p>
+            <div id="uniList" class="grid"></div>
+            <button id="loadMoreButton" class="load-more" type="button">Daha Fazla Yükle</button>
+        </section>
+
+        <section id="favoriler" class="page fade">
+            <h2>Favoriler</h2>
+            <div id="favList" class="grid"></div>
+        </section>
+
+        <section id="ai" class="page fade">
+            <div class="ai-box glass">
+                <h2>Tercih Robotu</h2>
+
+                <input id="rankInput" type="number" placeholder="Sıralama (örn: 50000)">
+                <input id="scoreInput" type="number" placeholder="Puan (örn: 450)">
+                <select id="scoreTypeSelect">
+                    <option value="say">Puan türü seç</option>
+                </select>
+
+                <select id="citySelect">
+                    <option value="">Şehir seç</option>
+                </select>
+
+                <button id="aiButton" type="button">Tercih Listesi Oluştur</button>
+            </div>
+
+            <p id="aiSummary" class="section-note"></p>
+            <canvas id="chart" height="100"></canvas>
+            <div id="aiResult" class="grid"></div>
+        </section>
+
+        <section id="sohbet" class="page fade">
+            <div class="chat glass">
+                <div id="chatBox" class="chat-box"></div>
+
+                <div class="chat-input">
+                    <input id="chatInput" type="text" placeholder="Mesaj yaz...">
+                    <button id="sendButton" type="button" aria-label="Mesaj gönder">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
